@@ -1,4 +1,6 @@
 let productList = [];
+let cartList = [];
+console.log(cartList);
 getProduct();
 
 // Hàm call API từ data
@@ -34,22 +36,20 @@ function renderProducts(products) {
 
 // ==============Cart==================
 
-
-// let productList = getProduct();
-
 // Thêm sản phẩm vào giỏ hàng
-let cartList = [];
+
 function addToCart(id) {
     const cartItem = productList.filter((item) => {
         return item.id == id
     })
+    console.log(cartItem);
     let item = new CartItem(
         cartItem[0].id,
         cartItem[0].name,
         cartItem[0].price,
         1,
     );
-    if (cartList.some((item) => {
+    if (!cartList.some((item) => {
         return item.id === id
     })) {
         cartList.push(item);
@@ -57,9 +57,10 @@ function addToCart(id) {
         let index = cartList.findIndex((val) => {
             return val.id === id
         })
-        cartList[index].quantity += 1;
+        cartList[index].quantity  += 1;
     }
     renderCart();
+    setLocal();
 }
 
 
@@ -84,44 +85,43 @@ function renderCart() {
             <td>${product.name}</td>
             <td>
             <div style="width:100px">
-            <button type='button' class='btn decrease' onclick="decrease(${product.id})">-</button><span></span>
+            <button type='button' class='btn decrease' onclick="decrease(${product.id})">-</button><span>${product.quantity < 1 ? 1 : product.quantity}</span>
             <button type='button' class='btn increase' onclick="increase(${product.id})">+</button>
             </div>
             </td>
             <td>${product.price.toLocaleString()}</td>
-            <td>${(product.quantity < 1 ? val.price : val.quantity * val.price).toLocaleString()}</td>
+            <td>${(product.quantity < 1 ? product.price : product.quantity * product.price).toLocaleString()}</td>
             <td><button class='btn btn-danger' onclick=""> Xóa </button></td>
             </tr>`);
-        },"");
-
-
+        }, "");
+        document.getElementById("itemList").innerHTML = res;
     }
 };
 
-// // Hàm giảm số lượng trong Cart
-// function decrease(id) {
-//     let index = cartList.findIndex((item) => {
-//         return item.id === id
-//     });
-// if (index === -1 ) return;
-// cartList[index].quantity -= 1;
-// renderCart();
-// }
+// Hàm giảm số lượng trong Cart
+function decrease(id) {
+    let index = cartList.findIndex((item) => {
+        return item.id === id
+    });
+if (index === -1 ) return;
+cartList[index].quantity -= 1;
+renderCart();
+}
 
-// // Hàm tăng số lượng
-// function increase(id){
-//     let index = cartList.findIndex((item) => {
-//         return item.id === id
-//     });
-// if(index === -1) return;
-// cartList[index].quantity += 1;
-// renderCart()
-// };
+// Hàm tăng số lượng
+function increase(id){
+    let index = cartList.findIndex((item) => {
+        return item.id === id
+    });
+if(index === -1) return;
+cartList[index].quantity += 1;
+renderCart()
+};
 
-// // Đếm số lượng
-// function getCount(){
-// let count = cartList.reduce(() => {
-//     return res + product.quantity
-// },0)
-// };
-// getCount();
+// Đếm số lượng
+function getCount(){
+let count = cartList.reduce(() => {
+    return res + product.quantity
+},0)
+};
+getCount();
