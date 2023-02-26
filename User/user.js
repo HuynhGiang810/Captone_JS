@@ -24,7 +24,7 @@ function renderProducts(products) {
         <img src="${product.img}" with="70" height="70"/>
         <p>${product.name}</p>
         <p> Giá: ${product.price}</p>
-        <button onclick="addToCart(${product.id})"> Thêm Vào Giỏ Hàng </button>
+        <button onclick="addToCart('${product.id}')"> Thêm Vào Giỏ Hàng </button>
 
         </div>
         `);
@@ -57,10 +57,12 @@ function addToCart(id) {
         let index = cartList.findIndex((val) => {
             return val.id === id
         })
-        cartList[index].quantity  += 1;
+        cartList[index].quantity += 1;
     }
     renderCart();
     setLocal();
+    getCount();
+    getTotal();
 }
 
 
@@ -85,16 +87,19 @@ function renderCart() {
             <td>${product.name}</td>
             <td>
             <div style="width:100px">
-            <button type='button' class='btn decrease' onclick="decrease(${product.id})">-</button><span>${product.quantity < 1 ? 1 : product.quantity}</span>
-            <button type='button' class='btn increase' onclick="increase(${product.id})">+</button>
+            <button type='button' class='btn decrease' onclick="decrease('${product.id}')">-</button><span>${product.quantity}</span>
+            <button type='button' class='btn increase' onclick="increase('${product.id}')">+</button>
             </div>
             </td>
             <td>${product.price.toLocaleString()}</td>
             <td>${(product.quantity < 1 ? product.price : product.quantity * product.price).toLocaleString()}</td>
-            <td><button class='btn btn-danger' onclick=""> Xóa </button></td>
-            </tr>`);
+            <td><button class='btn btn-danger' onclick="deleteCart('${product.id}')"> Xóa </button></td>
+            </tr>
+            `);
         }, "");
         document.getElementById("itemList").innerHTML = res;
+    } else {
+        document.getElementById("itemList").innerHTML = "";
     }
 };
 
@@ -103,25 +108,57 @@ function decrease(id) {
     let index = cartList.findIndex((item) => {
         return item.id === id
     });
-if (index === -1 ) return;
-cartList[index].quantity -= 1;
-renderCart();
+    if (index === -1) return;
+    cartList[index].quantity--;
+    if (cartList[index].quantity < 1) {
+        cartList.splice(index, 1);
+    }
+    renderCart();
+    getCount();
+    getTotal();
 }
 
 // Hàm tăng số lượng
-function increase(id){
+function increase(id) {
     let index = cartList.findIndex((item) => {
         return item.id === id
     });
-if(index === -1) return;
-cartList[index].quantity += 1;
-renderCart()
+    if (index === -1) return;
+    cartList[index].quantity += 1;
+    renderCart();
+    getCount();
+    getTotal();
 };
 
+// Hàm xóa sản phẩm
+function deleteCart(id) {
+    cartList = cartList.filter((item) => {
+        return item.id !== id
+    });
+    setLocal();
+    getCount();
+    renderCart();
+};
+
+// Hàm tính tống giá giỏ hàng
+function getTotal(){
+    let total = cartList.reduce((res, product) => {
+        return res + (product.quantity * product.price);
+    },0);
+    if(cartList.length > 0) {
+        document.getElementById("total").innerHTML = total.toLocaleString() ;
+    }else{
+        document.getElementById("total").innerHTML = "" ;
+    }
+};
+getTotal();
+
+
 // Đếm số lượng
-function getCount(){
-let count = cartList.reduce(() => {
-    return res + product.quantity
-},0)
+function getCount() {
+    let count = cartList.reduce((res, product) => {
+        return res + product.quantity
+    }, 0);
+    document.getElementById("count").innerHTML = count;
 };
 getCount();

@@ -10,6 +10,7 @@ function getProducts(searchValue) {
             name: searchValue || undefined,
         },
     }).then((response) => {
+        sort = response.data.price
         console.log(response.data);
         const products = response.data.map((product) => {
             return new Product(
@@ -18,9 +19,10 @@ function getProducts(searchValue) {
                 product.price,
                 product.img,
                 product.desc,
-            );
+            );  
         });
         renderProducts(products);
+        
     })
 
 }
@@ -109,6 +111,16 @@ getElement("#txtSearch").addEventListener("keydown", (event) => {
     getProducts(searchValue);
 });
 
+// Hàm sắp xếp
+function sortProduct(){
+    axios({
+        method: "GET",
+        url:"https://63f2d93b4f17278c9a2cedf5.mockapi.io/api/products",
+        }).then((response) => {
+            let S = sortJSON(response.data, "price", true )
+        });
+        renderProducts(S);   
+}
 
 
 

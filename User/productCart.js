@@ -1,7 +1,6 @@
-function CartItem(id, name, price, img,quantity) {
+function CartItem(id, name, price,quantity) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.img = img;
     this.quantity = quantity;
   }

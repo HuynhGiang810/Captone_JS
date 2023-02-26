@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="./CSS/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -73,69 +73,65 @@
         <h2 class="section-title text-center pt-5 pb-5">Các Sản Phẩm Mới Năm 2023</h2>
         <div class="products__content container pt-5 pb-5">
             <div id="product" class="row">
-                
+
             </div>
         </div>
     </section>
-        
-<!-- ===================Cart==================== -->
+
+    <!-- ===================Cart==================== -->
 
 
     <div class="mt-5"></div>
     <!-- Button to Open the Modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#myModal"
-    >
-      Cart
-      <span id="count"></span>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Giỏ hàng
+        <span id="count"></span>
     </button>
 
     <!-- The Modal -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Modal Heading</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
+    <div class="modal w-200 " id="myModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header w-200">
+                    <h4 class="modal-title">Giỏ Hàng</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
 
-          <!-- Modal body -->
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">NAME</th>
-                    <th scope="col">QUANTITY</th>
-                    <th scope="col">PRICE</th>
-                    <th scope="col">TOTAL</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody id="itemList"></tbody>
-              </table>
+                <!-- Modal body -->
+                <div class="modal-body w-200">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tên Sản Phẩm</th>
+                                    <th scope="col">Số Lượng</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Tổng tiền</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemList"></tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer w-200 align-items-start">
+                    <p>Thành tiền</p><span id="total"></span>
+                    <p>đ</p>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thanh toán</button>
+                </div>
             </div>
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Close
-            </button>
-          </div>
         </div>
-      </div>
     </div>
 
     <div class="container">
-      <div id="Cart"></div>
-      <div id="renderProduct" class="row"></div>
+        <div id="Cart"></div>
+        <div id="renderProduct" class="row"></div>
     </div>
 
 
