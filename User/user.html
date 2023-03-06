@@ -13,15 +13,9 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <nav class="phoneNav container navbar navbar-expand-lg">
             <a class="navbar-brand" href="#">G-Phone</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#phoneNavbar"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <i class="fa fa-bars"></i>
-                </span>
-            </button>
 
             <div class="collapse navbar-collapse" id="phoneNavbar">
                 <ul class="navbar-nav ml-auto">
@@ -45,25 +39,18 @@
             </div>
         </nav>
     </header>
-    <section class="phoneCarousel pt-5 pb-5">
+    <section class="phoneCarousel ">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 d-flex align-items-center">
+            <div class="">
+                <div class="col-12  text-center">
                     <div>
                         <h1>G-Phone</h1>
-                        <h3>Các Sản Phẩm Nổi Bật</h3>
                         <p>Cras tortor mi, lobortis quis ornare in, varius scelerisque urna. Vivamus imperdiet dolor nec
                             odio convallis consequat.</p>
                         <div>
-                            <button class="btnPhone-white mr-2"><i class="fa fa-info-circle"></i> More Info</button>
-                            <button class="btnPhone-blue"><i class="fa fa-shopping-cart"></i> Shop</button>
+                            <button class="btnInfo mr-2"><i class="fa fa-info-circle"></i> More Info</button>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-6 d-md-block d-none">
-                    <img class="img-fluid" src="./img/product-header2.png" alt="">
-                </div>
             </div>
         </div>
     </section>
@@ -78,12 +65,54 @@
         </div>
     </section>
 
+
+    <footer>
+        <section class="w3l-footer d-flex">
+          <div class="w3l-footer-16-main py-5">
+            <div class="container">
+              <div class="">
+                <div class="col-lg-6 column">
+                  <div class="">
+                    <div class="col-md-4 column">
+                      <h3>Company</h3>
+                      <ul class="footer-gd-16">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Services</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact Us</a></li>
+                      </ul>
+                  </div>
+                </div>
+                <div class="">
+                  <h3>Newsproducts</h3>
+                  <div class="end-column">
+                    <h4>Get latest products and offers.</h4>
+                    <form action="#" class="subscribe" method="post">
+                      <input type="email" name="email" placeholder="Email Address" required>
+                      <button type="submit">Go</button>
+                    </form>
+                    <p>Sign up for our latest product and offers. We won’t give you spam mails.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+                <div class="column text-lg-left text-center">
+                  <p>© 2023 G-Phone. All rights reserved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+      </footer>
+
     <!-- ===================Cart==================== -->
 
 
     <div class="mt-5"></div>
     <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="btn btn-primary buttonCart" data-toggle="modal" data-target="#myModal">
         Giỏ hàng
         <span id="count"></span>
     </button>

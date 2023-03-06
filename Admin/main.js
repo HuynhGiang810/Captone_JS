@@ -111,18 +111,39 @@ getElement("#txtSearch").addEventListener("keydown", (event) => {
     getProducts(searchValue);
 });
 
-// Hàm sắp xếp
-function sortProduct(){
+// Hàm sắp xếp tăng dần
+function sortUp(){
     axios({
         method: "GET",
         url:"https://63f2d93b4f17278c9a2cedf5.mockapi.io/api/products",
         }).then((response) => {
-            let S = sortJSON(response.data, "price", true )
+           let S = sortJSON(response.data, "price", true )
+            renderProducts(S);
         });
-        renderProducts(S);   
 }
 
+function sortJSON(arr, key, asc = true) {
+    return arr.sort((a, b) => {
+      let x = a[key];
+      let y = b[key];
+      if (asc) {
+        return x < y ? -1 : x > y ? 1 : 0;
+      } else {
+        return x > y ? -1 : x < y ? 1 : 0;
+      }
+    });
+  }
 
+//   Hàm sắp xếp giảm dần
+function sortDown(){
+    axios({
+        method: "GET",
+        url:"https://63f2d93b4f17278c9a2cedf5.mockapi.io/api/products",
+        }).then((response) => {
+           let S = sortJSON(response.data, "price", false )
+            renderProducts(S);
+        });
+}
 
 // Hàm render sản phẩm
 function renderProducts(products) {
