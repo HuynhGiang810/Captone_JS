@@ -138,6 +138,7 @@ function deleteCart(id) {
     setLocal();
     getCount();
     renderCart();
+    getTotal();
 };
 
 // Hàm tính tống giá giỏ hàng

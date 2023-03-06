@@ -7,9 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -51,8 +56,8 @@
                             <button class="btnInfo mr-2"><i class="fa fa-info-circle"></i> More Info</button>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
     </section>
     <div class="carousel"></div>
 
@@ -67,53 +72,53 @@
 
 
     <footer>
-        <section class="w3l-footer d-flex">
-          <div class="w3l-footer-16-main py-5">
+        <section class="w3l-footer d-flex footer">
+
             <div class="container">
-              <div class="">
-                <div class="col-lg-6 column">
-                  <div class="">
-                    <div class="col-md-4 column">
-                      <h3>Company</h3>
-                      <ul class="footer-gd-16">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Contact Us</a></li>
-                      </ul>
-                  </div>
+
+                <div class="d-flex">
+                    <div class="mr-5 col-6">
+                        <div class="col-md-4 column">
+                            <h3>G-Phone</h3>
+                            <ul class="footer-gd-16">
+                                <li><a href="">Home</a></li>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Services</a></li>
+                                <li><a href="">Blog</a></li>
+                                <li><a href="">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h3>Newsproducts</h3>
+                        <div class="end-column">
+                            <h4>Get latest products and offers.</h4>
+                            <form action="#" class="subscribe" method="post">
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <button type="submit">Go</button>
+                            </form>
+                            <p>Sign up for our latest product and offers. We won’t give you spam mails.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="">
-                  <h3>Newsproducts</h3>
-                  <div class="end-column">
-                    <h4>Get latest products and offers.</h4>
-                    <form action="#" class="subscribe" method="post">
-                      <input type="email" name="email" placeholder="Email Address" required>
-                      <button type="submit">Go</button>
-                    </form>
-                    <p>Sign up for our latest product and offers. We won’t give you spam mails.</p>
-                  </div>
+                <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+                    <div class="column text-lg-left text-center">
+                        <p>© 2023 G-Phone. All rights reserved</p>
+                    </div>
                 </div>
-              </div>
-              <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
-                <div class="column text-lg-left text-center">
-                  <p>© 2023 G-Phone. All rights reserved</p>
-                </div>
-              </div>
+
             </div>
-          </div>
         </section>
-    
-      </footer>
+
+    </footer>
 
     <!-- ===================Cart==================== -->
 
 
     <div class="mt-5"></div>
     <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary buttonCart" data-toggle="modal" data-target="#myModal">
-        Giỏ hàng
+    <button type="button" class="buttonCart" data-toggle="modal" data-target="#myModal">
+        <i class="fa-solid fa-cart-shopping"></i>
         <span id="count"></span>
     </button>
 
